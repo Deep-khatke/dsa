@@ -1,5 +1,3 @@
-//assuming every day as  selling gay 
-
 class Solution {
 public:
     int maxProfit(vector<int>& pri) {
