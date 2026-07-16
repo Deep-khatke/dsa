@@ -1,9 +1,9 @@
 class Solution {
 public:
 
-    bool isFreqSame(int a[], int b[]) {
+    bool isfreqsame(int freq[], int windfreq[]) {
         for(int i = 0; i < 26; i++) {
-            if(a[i] != b[i])
+            if(freq[i] != windfreq[i])
                 return false;
         }
         return true;
@@ -20,22 +20,22 @@ public:
             freq[s1[i] - 'a']++;
         }
 
-        int windowSize = s1.length();
+        int windsize = s1.length();
 
-        for(int i = 0; i <= s2.length() - windowSize; i++) {
+        for(int i = 0; i <= s2.length() - windsize; i++) {
 
-            int windowFreq[26] = {0};
+            int windfreq[26] = {0};   // Reset for every window
 
+            int windidx = 0;
             int idx = i;
-            int windowIdx = 0;
 
-            while(windowIdx < windowSize) {
-                windowFreq[s2[idx] - 'a']++;
+            while(windidx < windsize) {
+                windfreq[s2[idx] - 'a']++;
                 idx++;
-                windowIdx++;
+                windidx++;
             }
 
-            if(isFreqSame(freq, windowFreq))
+            if(isfreqsame(freq, windfreq))
                 return true;
         }
 
